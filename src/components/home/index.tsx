@@ -4,22 +4,23 @@ import { Header } from './Header.';
 import { ProductItem } from './ProductItem';
 import NoProductsFound from '../NoProductsFound';
 
+import { Product } from '../../types';
+
 export const HomeContent = ({
   products,
   onRefresh,
   refreshing,
 }: {
   refreshing: boolean;
-  products: any;
+  products: Product[];
   onRefresh: () => void;
 }) => {
-  console.log(products);
   return (
     <FlatList
       style={styles.container}
       data={products}
       renderItem={({ item }) => <ProductItem item={item} />}
-      keyExtractor={item => item.id}
+      keyExtractor={item => item.id.toString()}
       numColumns={2}
       ListEmptyComponent={<NoProductsFound />}
       columnWrapperStyle={styles.columnWrapper}

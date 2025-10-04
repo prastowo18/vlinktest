@@ -1,9 +1,17 @@
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 import { Product } from '../../types';
+import { COLORS } from '../../constants/colors';
 
 export const ProductItem = ({ item }: { item: Product }) => {
+  const navigation = useNavigation<any>();
+
+  const handlePress = () => {
+    navigation.navigate('ProductDetail', { id: item.id });
+  };
+
   return (
     <View style={styles.card}>
       <Image src={item.thumbnail} style={styles.productImage} />
@@ -20,6 +28,14 @@ export const ProductItem = ({ item }: { item: Product }) => {
       </View>
 
       <Text style={styles.productPrice}>${item.price.toFixed(2)}</Text>
+
+      <TouchableOpacity style={styles.detailButton} onPress={handlePress}>
+        <Ionicons
+          name="arrow-forward-circle"
+          size={28}
+          color={COLORS.primary}
+        />
+      </TouchableOpacity>
     </View>
   );
 };
@@ -36,6 +52,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 6,
     elevation: 3,
+    position: 'relative',
   },
   productImage: { width: '100%', height: 140, borderRadius: 8 },
   category: { fontSize: 10, color: '#999', marginTop: 6 },
@@ -43,9 +60,14 @@ const styles = StyleSheet.create({
   ratingRow: { flexDirection: 'row', alignItems: 'center', marginTop: 4 },
   ratingText: { fontSize: 12, marginLeft: 4, color: '#666' },
   productPrice: {
-    color: '#1abc9c',
+    color: COLORS.primary,
     fontWeight: '600',
     marginTop: 6,
     fontSize: 14,
+  },
+  detailButton: {
+    position: 'absolute',
+    right: 8,
+    bottom: 8,
   },
 });

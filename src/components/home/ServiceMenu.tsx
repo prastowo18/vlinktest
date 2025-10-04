@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
   },
   item: { alignItems: 'center' },
   iconContainer: {
-    backgroundColor: '#f0f0f0',
+    backgroundColor: '#f5f5f5',
     padding: 15,
     borderRadius: 16,
     marginBottom: 6,

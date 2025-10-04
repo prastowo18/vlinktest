@@ -12,8 +12,8 @@ export const useProducts = () => {
     try {
       const { data } = await axios.get(`${API_URL}/products`, {
         params: {
+          skip: 0,
           limit: 10,
-          skip: 10,
         },
       });
       setProducts(data.products);

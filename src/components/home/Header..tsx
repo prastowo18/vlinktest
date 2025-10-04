@@ -2,6 +2,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import { Banner } from './Banner';
 import { ServiceMenu } from './ServiceMenu';
+import { COLORS } from '../../constants/colors';
 
 export const Header = () => {
   return (
@@ -27,5 +28,5 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   sectionTitle: { fontSize: 17, fontWeight: '600', color: '#222' },
-  seeMore: { color: '#1ab395', fontSize: 14 },
+  seeMore: { color: COLORS.primary, fontSize: 14 },
 });
