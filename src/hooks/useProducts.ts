@@ -1,18 +1,24 @@
+import axios from 'axios';
+
 import { useCallback, useState } from 'react';
 
 const API_URL = 'https://dummyjson.com';
 
 export const useProducts = () => {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchProducts = useCallback(async () => {
     try {
-      const response = await fetch(`${API_URL}/products`);
-      const data = await response.json();
-      setProducts(data);
+      const { data } = await axios.get(`${API_URL}/products`, {
+        params: {
+          limit: 10,
+          skip: 10,
+        },
+      });
+      setProducts(data.products);
     } catch (error) {
-      console.error('Error fetching transactions:', error);
+      console.error('Error fetching products:', error);
     }
   }, []);
 
