@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import HomeScreen from '../screens/HomeScreen';
 import LoginScreen from '../screens/LoginScreen';
 
 import { useAuthStore } from '../store/useAuthStore';
 import ProductScreen from '../screens/ProductScreen';
+import { HomeScreen } from '../screens/HomeScreen';
 
 const Stack = createNativeStackNavigator();
 

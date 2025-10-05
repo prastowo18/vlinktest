@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
   },
-  content: { padding: 20, position: 'absolute', top: 80 },
+  content: { padding: 20, position: 'absolute', top: 50 },
 
   // Profile
   profileWrapper: {

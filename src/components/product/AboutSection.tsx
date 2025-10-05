@@ -9,7 +9,7 @@ export const AboutSection = ({ product }: { product: Product }) => {
     <View>
       <View style={styles.infoRow}>
         <Text style={styles.infoLabel}>Brand:</Text>
-        <Text style={styles.infoValue}>{product.brand}</Text>
+        <Text style={styles.infoValue}>{product.brand ?? '-'}</Text>
         <Text style={[styles.infoLabel, { marginLeft: 20 }]}>Color:</Text>
         <Text style={styles.infoValue}>Black</Text>
       </View>
